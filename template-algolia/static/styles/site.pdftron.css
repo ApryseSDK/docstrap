@@ -7056,6 +7056,13 @@ code {
   }
 }
 
+.search-with-icon i {
+  padding: 10px; 
+}
+.search-with-icon.glyphicon-search {
+  color: #fff;
+}
+
 .toc-header-t {
   padding:10px;
   border: 1px lightgrey solid;
