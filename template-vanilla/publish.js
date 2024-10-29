@@ -64,7 +64,7 @@ var navigationMaster = {
   },
   namespace: {
     title: "Namespaces",
-    // link: helper.getUniqueFilename("namespaces.list"),
+    link: indexUrl,
     members: []
   },
   module: {
