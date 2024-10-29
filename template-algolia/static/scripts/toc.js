@@ -148,8 +148,26 @@
     return this.each(function() {
       //build TOC
       var el = $(this);
-      var ul = $('<div class="list-group">');
+      var chevDown = $('<img src="img/chevron-down-white.png"/>')
+      var chevUp = $('<img src="img/chevron-up-white.png"/>')
+      var close = $('<div class="toc-header-t"></div>')
+      var tocText = $('<span>Table of contents</div>')
+      var chevHolder = $('<span class="toc-chev"></span>')
 
+      close.append(chevHolder);
+      close.append(tocText);
+      chevHolder.html(chevUp)
+      var ul = $('<div class="list-group">');
+      close.bind('click', function(e) {
+        if(ul.hasClass("hidden")) {
+          chevHolder.html(chevUp);
+          ul.removeClass('hidden')
+        } else {
+          chevHolder.html(chevDown);
+          ul.addClass('hidden')
+        }
+      })
+      el.append(close);
       headings.each(function(i, heading) {
         var $h = $(heading);
 
@@ -173,7 +191,8 @@
 
         ul.append(a);
       });
-      el.html(ul);
+
+      el.append(ul);
 
       calcHadingOffsets();
     });
