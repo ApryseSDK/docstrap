@@ -43,13 +43,8 @@
 		</ul>
         <?js if (this.navOptions.search) { ?>
             <div class="col-sm-3 col-md-3">
-                <form class="navbar-form" role="search">
-                    <div class="input-group">	
-											<input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-											<!-- <div class="input-group-btn-search"> -->
-												<!-- </div> -->
-											</div>
-											<i class="glyphicon fake-btn glyphicon-search"></i>
+                <form class="navbar-form" role="search" id="apryse-search-modal">
+										<i class="glyphicon fake-btn glyphicon-search"></i>
                 </form>
             </div>
         <?js } ?>
@@ -245,7 +240,7 @@ $( function () {
 
 <script type="text/javascript">
 	window.apryseSearch.loadSearchTool({
-		targetSelector: "[role='search'] .input-group",
+		targetSelector: "#apryse-search-modal",
 		searchConfig: {},
 	});
 </script>
