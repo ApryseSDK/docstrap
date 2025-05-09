@@ -241,15 +241,13 @@ $( function () {
     </script>
 <?js } ?>
 
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script crossorigin src="https://prod.global-search.apryse.com/apryse-search.umd.js"></script>
+
 <script type="text/javascript">
-docsearch({
-	appId: "3MUCVV1SU4",
-	apiKey: "1b3d775fc5e723b367372f967661c103",
-	indexName: "apryse",
-	container: "[role='search'] .input-group",
-	debug: false
-});
+	window.apryseSearch.loadSearchTool({
+		targetSelector: '[role='search'] .input-group',
+		searchConfig: {},
+	});
 </script>
 </body>
 </html>
