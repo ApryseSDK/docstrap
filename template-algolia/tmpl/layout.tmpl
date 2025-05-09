@@ -241,7 +241,24 @@ $( function () {
 <script type="text/javascript">
 	window.apryseSearch.loadSearchTool({
 		targetSelector: "#apryse-search-modal",
-		searchConfig: {},
+		searchConfig: {
+			defaultProduct: "web",
+			tabs: [
+				{
+					name: "API",
+					filters: [
+							{ attribute: 'language', title: 'Language', default: 'javascript' },
+							{ attribute: 'product', title: 'Product' },
+					]
+				},
+				{
+					name: "Guides"
+				},
+				{
+					name: "Forum posts"
+				}
+			]
+		},
 	});
 </script>
 </body>
