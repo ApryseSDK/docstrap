@@ -18,7 +18,7 @@
 </head>
 
 <body>
-
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FFX2TF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="navbar navbar-default navbar-fixed-top <?js= this.navOptions.inverseNav ? 'navbar-inverse' : '' ?>">
 <div class="container">
 	<div class="navbar-header"><img className="navbar-img" src="img/logo-white.png" width="40" height="40"/>
@@ -43,13 +43,8 @@
 		</ul>
         <?js if (this.navOptions.search) { ?>
             <div class="col-sm-3 col-md-3">
-                <form class="navbar-form" role="search">
-                    <div class="input-group">	
-											<input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
-											<!-- <div class="input-group-btn-search"> -->
-												<!-- </div> -->
-											</div>
-											<i class="glyphicon fake-btn glyphicon-search"></i>
+                <form class="navbar-form" role="search" id="apryse-search-modal">
+										<i class="glyphicon fake-btn glyphicon-search" style="cursor:pointer"></i>
                 </form>
             </div>
         <?js } ?>
@@ -241,15 +236,30 @@ $( function () {
     </script>
 <?js } ?>
 
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src="https://prod.global-search.apryse.com/apryse-search.umd.js"></script>
+
 <script type="text/javascript">
-docsearch({
-	appId: "3MUCVV1SU4",
-	apiKey: "1b3d775fc5e723b367372f967661c103",
-	indexName: "apryse",
-	container: "[role='search'] .input-group",
-	debug: false
-});
+	window.apryseSearch.loadSearchTool({
+		targetSelector: "#apryse-search-modal",
+		searchConfig: {
+			defaultProduct: "web",
+			tabs: [
+				{
+					name: "API",
+					filters: [
+							{ attribute: 'language', title: 'Language', default: 'JavaScript' },
+							{ attribute: 'product', title: 'Product', default: 'WebViewer SDK' },
+					]
+				},
+				{
+					name: "Guides"
+				},
+				{
+					name: "Forum posts"
+				}
+			]
+		},
+	});
 </script>
 </body>
 </html>
